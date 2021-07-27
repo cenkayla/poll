@@ -13,7 +13,7 @@ go run main.go
 
 To create a poll with multiple choices
 ```shell
-$ curl --request POST \
+curl --request POST \
 	--url "localhost:8080/api/createpoll" \
 	--header "Content-Type: application/json" \
 	--data "{\"id\":1,\"name\":\"What's your favorite game?\",\"choice\":[{\"name\":\"League of Legends\"},{\"name\":\"Dota2\"}]}"
@@ -25,7 +25,7 @@ Response
 
 To vote for a specific choice
 ```shell
-$ curl --request POST \
+curl --request POST \
 	--url "localhost:8080/api/poll" \
 	--header "Content-Type: application/json" \
 	--data "{\"id\":1,\"name\":\"Dota2\"}"
@@ -37,7 +37,7 @@ Response
 
 To get the result for a specific vote
 ```shell
-$ curl --request POST \
+curl --request POST \
 	--url "localhost:8080/api/getresult" \
 	--header "Content-Type: application/json" \
 	--data "{\"id\":1}"
