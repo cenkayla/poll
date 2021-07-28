@@ -7,8 +7,9 @@
 ```shell
 git clone https://github.com/cenkayla/poll.git
 cd poll
-go run main.go
+sudo docker-compose up -d
 ```
+
 # Usage
 
 To create a poll with multiple choices
