@@ -51,22 +51,13 @@ Response
     {
       "id": 1,
       "name": "League of Legends",
-      "votes": 0,
-      "CreatedAt": "2021-07-15T02:22:45.96279+03:00",
-      "UpdatedAt": "2021-07-15T02:22:45.96279+03:00",
-      "DeletedAt": null
+      "votes": 0
     },
     {
       "id": 1,
       "name": "Dota2",
-      "votes": 1,
-      "CreatedAt": "2021-07-15T02:22:45.96279+03:00",
-      "UpdatedAt": "2021-07-15T02:27:41.6796+03:00",
-      "DeletedAt": null
+      "votes": 1
     }
-  ],
-  "CreatedAt": "2021-07-15T02:22:45.961113+03:00",
-  "UpdatedAt": "2021-07-15T02:22:45.961113+03:00",
-  "DeletedAt": null
+  ]
 }
 ```
