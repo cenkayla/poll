@@ -8,21 +8,21 @@ import (
 )
 
 type Poll struct {
-	ID        int      `gorm:"primary_key"`
-	Name      string   `json:"name"`
-	Choice    []Choice `gorm:"foreignKey:PollID" json:"choice"`
-	CreatedAt time.Time
-	UpdatedAt time.Time
-	DeletedAt *time.Time
+	ID        int        `gorm:"primary_key"`
+	Name      string     `json:"name"`
+	Choice    []Choice   `gorm:"foreignKey:PollID" json:"choice"`
+	CreatedAt time.Time  `json:"-"`
+	UpdatedAt time.Time  `json:"-"`
+	DeletedAt *time.Time `json:"-"`
 }
 
 type Choice struct {
-	PollID    int    `json:"id"`
-	Name      string `json:"name"`
-	Votes     int    `json:"votes"`
-	CreatedAt time.Time
-	UpdatedAt time.Time
-	DeletedAt *time.Time
+	PollID    int        `json:"id"`
+	Name      string     `json:"name"`
+	Votes     int        `json:"votes"`
+	CreatedAt time.Time  `json:"-"`
+	UpdatedAt time.Time  `json:"-"`
+	DeletedAt *time.Time `json:"-"`
 }
 
 func (c *Choice) BeforeCreate(tx *gorm.DB) (err error) {

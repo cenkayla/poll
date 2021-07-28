@@ -16,7 +16,7 @@ type Service struct {
 	DB *gorm.DB
 }
 
-func (a *Service) Open() error {
+func (s *Service) Open() error {
 	if err := godotenv.Load(".env"); err != nil {
 		log.Fatal("Error when loading .env file")
 	}
@@ -24,9 +24,10 @@ func (a *Service) Open() error {
 	if err != nil {
 		return err
 	}
-	a.DB = db
-	a.ConfigureRouter()
-	return a.DB.AutoMigrate(&models.Poll{}, &models.Choice{})
+	s.DB = db
+	s.ConfigureRouter()
+	s.DB.Migrator().DropTable(&models.Poll{}, models.Choice{})
+	return s.DB.AutoMigrate(&models.Poll{}, &models.Choice{})
 }
 
 func (s *Service) ConfigureRouter() http.Handler {

@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres
+    container_name: postgres
+    restart: always
+    volumes:
+      - ./db-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=destr0
+      - POSTGRES_PASSWORD=12345m
+      - POSTGRES_DB=votingservice
+    ports:
+      - 5432:5432
+
+  backend:
+    container_name: backend-dev
+    image: backend-dev
+    build:
+      context: .
+      target: development
+    volumes:
+      - .:/backend
+    environment:
+      - DATABASE=postgres://destr0:12345m@db:5432/votingservice?sslmode=disable
+    depends_on:
+      - db
+    ports:
+      - 8080:8080
